@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "764080293019",
+    "project_id": "freenetworksocial",
+    "storage_bucket": "freenetworksocial.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:764080293019:android:33cf435ef5e3a3f4acf23e",
+        "android_client_info": {
+          "package_name": "com.sayan.freenetworksocial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "764080293019-rdr6ugbnf3s21le1s9gn7okekrh4snoc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOdks36upzi1s5qdP26DKExPIa15Z60Xc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "764080293019-rdr6ugbnf3s21le1s9gn7okekrh4snoc.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "764080293019-d7qfca6ov3ipckf2ja9uf8pds4g567rm.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sayan.freenetworksocial"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
