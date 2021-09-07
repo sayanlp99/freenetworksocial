@@ -1,6 +1,8 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:freenetworksocial/pages/activity_feed.dart';
+import 'package:freenetworksocial/pages/create_account.dart';
 import 'package:freenetworksocial/pages/profile.dart';
 import 'package:freenetworksocial/pages/search.dart';
 import 'package:freenetworksocial/pages/timeline.dart';
@@ -8,6 +10,8 @@ import 'package:freenetworksocial/pages/upload.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 final googleSignIn = GoogleSignIn();
+final userRef = FirebaseFirestore.instance.collection('users');
+final DateTime timestamp = DateTime.now();
 
 class Home extends StatefulWidget {
   @override
@@ -39,9 +43,28 @@ class _HomeState extends State<Home> {
         duration: Duration(milliseconds: 300), curve: Curves.easeInOut);
   }
 
+  createUserInFirestore() async {
+    final GoogleSignInAccount? user = googleSignIn.currentUser;
+    final DocumentSnapshot documentSnapshot = await userRef.doc(user!.id).get();
+    if (!documentSnapshot.exists) {
+      final username = await Navigator.push(
+          context, MaterialPageRoute(builder: (context) => CreateAccount()));
+      userRef.doc(user.id).set({
+        "id": user.id,
+        "username": username,
+        "photoUrl": user.photoUrl,
+        "email": user.email,
+        "displayName": user.displayName,
+        "bio": "",
+        "timestamp": timestamp
+      });
+    }
+  }
+
   handleSignIn(GoogleSignInAccount account) {
     // ignore: unnecessary_null_comparison
     if (account != null) {
+      createUserInFirestore();
       print('User: $account');
       setState(() {
         isAuth = true;
