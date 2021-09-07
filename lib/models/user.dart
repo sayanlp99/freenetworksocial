@@ -9,12 +9,12 @@ class User {
   final String bio;
 
   User({
-    this.id,
-    this.username,
-    this.email,
-    this.photoUrl,
-    this.displayName,
-    this.bio,
+    required this.id,
+    required this.username,
+    required this.email,
+    required this.photoUrl,
+    required this.displayName,
+    required this.bio,
   });
 
   factory User.fromDocument(DocumentSnapshot doc) {

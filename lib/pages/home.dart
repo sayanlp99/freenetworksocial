@@ -13,7 +13,7 @@ import 'package:google_sign_in/google_sign_in.dart';
 final GoogleSignIn googleSignIn = GoogleSignIn();
 final usersRef = FirebaseFirestore.instance.collection('users');
 final DateTime timestamp = DateTime.now();
-User currentUser;
+User? currentUser;
 
 class Home extends StatefulWidget {
   @override
@@ -81,8 +81,8 @@ class _HomeState extends State<Home> {
   }
 
   createUserInFirestore() async {
-    final GoogleSignInAccount user = googleSignIn.currentUser;
-    DocumentSnapshot doc = await usersRef.document(user.id).get();
+    final GoogleSignInAccount? user = googleSignIn.currentUser;
+    DocumentSnapshot doc = await usersRef.document(user!.id).get();
     if (!doc.exists) {
       final username = await Navigator.push(
           context, MaterialPageRoute(builder: (context) => CreateAccount()));
@@ -99,7 +99,7 @@ class _HomeState extends State<Home> {
     }
     currentUser = User.fromDocument(doc);
     print(currentUser);
-    print(currentUser.username);
+    print(currentUser!.username);
   }
 
   Widget buildAuthScreen() {
