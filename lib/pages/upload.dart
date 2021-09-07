@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:freenetworksocial/widgets/header.dart';
 
 class Upload extends StatefulWidget {
   @override
@@ -8,6 +9,9 @@ class Upload extends StatefulWidget {
 class _UploadState extends State<Upload> {
   @override
   Widget build(BuildContext context) {
-    return Text("Upload");
+    return Scaffold(
+      appBar: header(context),
+      body: Text("Upload"),
+    );
   }
 }

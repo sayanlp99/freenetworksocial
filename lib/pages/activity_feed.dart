@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:freenetworksocial/widgets/header.dart';
 
 class ActivityFeed extends StatefulWidget {
   @override
@@ -8,7 +9,10 @@ class ActivityFeed extends StatefulWidget {
 class _ActivityFeedState extends State<ActivityFeed> {
   @override
   Widget build(BuildContext context) {
-    return Text('Activity Feed');
+    return Scaffold(
+      appBar: header(context),
+      body: Text("Activity Feed"),
+    );
   }
 }
 
