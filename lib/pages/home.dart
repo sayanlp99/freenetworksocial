@@ -173,10 +173,10 @@ class _HomeState extends State<Home> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              'FlutterShare',
+              'FreeNetworkSocial',
               style: TextStyle(
                 fontFamily: "Signatra",
-                fontSize: 90.0,
+                fontSize: 50.0,
                 color: Colors.white,
               ),
             ),
