@@ -7,7 +7,7 @@ AppBar header(context) {
       style: TextStyle(
         color: Colors.white,
         fontFamily: "Signatra",
-        fontSize: 50.0,
+        fontSize: 30.0,
       ),
     ),
     centerTitle: true,
